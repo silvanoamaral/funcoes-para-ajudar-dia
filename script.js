@@ -12,7 +12,29 @@ var App = {
         },
         insertChild: function(el,div){
             el.appendChild(div);
-        }, 
+        },
+        isMobile : function(){
+            if (navigator.userAgent.match(/iPad|iPhone|Android|BlackBerry|webOS/i) ) {
+                return true;
+            }
+            else{
+                return false;
+            }
+        },
+        insertClassMobile: function(){
+            if(App.handlers.events.isMobile()){
+                document.querySelector("body").classList.add("mobile");
+            }else{
+                document.querySelector("body").classList.remove("mobile");
+            }
+        },
+        resize: function(f){
+            var nameFunction = f;
+            window.addEventListener("resize", nameFunction);
+            /*
+                Name da função corresponde ao callback
+            */            
+        },
         clique: function(element){
             var e = element[0];
             e.addEventListener('click', function(){
