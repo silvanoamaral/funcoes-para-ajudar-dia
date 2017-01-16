@@ -35,6 +35,17 @@ var App = {
                 Name da função corresponde ao callback
             */            
         },
+        mascaraMoeda : function(valor){
+            /*
+                Máscara Moeda com Expressão Regular
+            */
+            var m = valor; //Exemplo 'R$ 3.942,49' ou 432,00;
+            m=m.replace(/\D/g,""); //Remove tudo o que não é dígito
+            m=m.replace(/(\d{2})$/,",$1"); //Coloca a virgula
+            m=m.replace(/(\d+)(\d{3},\d{2})$/g,"$1.$2"); //Coloca o primeiro ponto
+
+            return m;
+        }
         clique: function(element){
             var e = element[0];
             e.addEventListener('click', function(){
