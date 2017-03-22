@@ -55,6 +55,29 @@ var App = {
         getRandomArbitrary: function(min, max) {
             /* gerar um número randômico */
             return (Math.random() * (max - min) + min).toFidex();
+        },
+        validateMail: function(a) {
+            var b = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return b.test(a)
+        },
+        validateCPF: function(a) {
+            a = a.replace(/[^\d]+/g, "");
+            var b, c;
+            if (b = 0,
+            "00000000000" == a || "11111111111" == a || "22222222222" == a || "33333333333" == a || "44444444444" == a || "55555555555" == a || "66666666666" == a || "77777777777" == a || "88888888888" == a || "99999999999" == a)
+                return !1;
+            for (i = 1; i <= 9; i++)
+                b += parseInt(a.substring(i - 1, i)) * (11 - i);
+            if (c = 10 * b % 11,
+            10 != c && 11 != c || (c = 0),
+            c != parseInt(a.substring(9, 10)))
+                return !1;
+            for (b = 0,
+            i = 1; i <= 10; i++)
+                b += parseInt(a.substring(i - 1, i)) * (12 - i);
+            return c = 10 * b % 11,
+            10 != c && 11 != c || (c = 0),
+            c == parseInt(a.substring(10, 11))
         }
     },
     handlers: {
