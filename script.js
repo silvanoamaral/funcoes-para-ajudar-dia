@@ -46,6 +46,7 @@ var App = {
 
             return m;
         },
+        
         clique: function(element){
             var e = element[0];
             e.addEventListener('click', function(){
