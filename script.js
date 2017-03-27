@@ -45,8 +45,7 @@ var App = {
             m=m.replace(/(\d+)(\d{3},\d{2})$/g,"$1.$2"); //Coloca o primeiro ponto
 
             return m;
-        },
-        
+        },        
         clique: function(element){
             var e = element[0];
             e.addEventListener('click', function(){
